@@ -1,0 +1,29 @@
+{
+  "name": "lukaszek-czyta-api",
+  "version": "1.0.0",
+  "description": "api for lukaszek czyta",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LukaszCaputa/lukaszek-czyta-api.git"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "lukaszek-czyta"
+  ],
+  "author": "Lukasz Caputa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LukaszCaputa/lukaszek-czyta-api/issues"
+  },
+  "homepage": "https://github.com/LukaszCaputa/lukaszek-czyta-api#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
+  }
+}
