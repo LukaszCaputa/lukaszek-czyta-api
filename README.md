@@ -10,17 +10,32 @@ TBA
 
 ## API
 
-### /book/add
+### POST /book/add
 Create a new entry
 
-### /book/get
+### GET /book/get
 Retrieve all entries
 
-### /book/get/:id
+### GET /book/get/:bookId
 Retrieve a single entry by given id
 
-### /book/update/:id
+### PUT /book/update/:bookId
 Update an entry with given id
 
-### /book/invalidate/:id
+### DELETE /book/invalidate/:bookId
 Invalidate an entry by given id
+
+### POST /tag/add
+Add tag
+
+### GET /tag/get
+Get tags
+
+### GET /tag/get/:name
+Get tag by name
+
+### GET /tag2book/get/:bookId
+Get tags for entry
+
+### POST /tag2book/add/:tagId/:bookId
+Add tag for entry
