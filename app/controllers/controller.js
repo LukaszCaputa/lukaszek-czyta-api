@@ -67,7 +67,9 @@ exports.getAllBooks = (req, res) => {
     connection.query('select * from d_book',
         function (error, results, fields) {
             if (error) throw error;
-            res.end(JSON.stringify(results));
+            const data = {'books' : results}
+            res.setHeader('Content-Type', 'application/json')
+            res.end(JSON.stringify(data));
         });
 };
 
@@ -77,6 +79,7 @@ exports.getBook = (req, res) => {
         [req.params.id],
         function (error, results, fields) {
             if (error) throw error;
+            res.setHeader('Content-Type', 'application/json');
             res.end(JSON.stringify(results));
         });
 };
@@ -168,7 +171,9 @@ exports.getTags = (req, res) => {
     connection.query('select * from s_tag',
     function (error, results, fields) {
         if (error) throw error;
-        res.end(JSON.stringify(results));
+        const data = {'tags' : results}
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify(data));
     });
 };
 
