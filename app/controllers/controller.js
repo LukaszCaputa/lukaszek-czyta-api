@@ -130,10 +130,16 @@ exports.updateBook = (req, res) => {
         });
     }
     
-    connection.query('UPDATE `d_book` SET `title`=?,`author`=? where `id`=?',
-        [req.body.any, req.body.author, req.params.id],
+    connection.query('UPDATE `d_book` SET `title`=?,`author`=?,`lead`=?, `recommendation`=?,`read_date`=?,`status`=? where `id`=?',
+        [req.body.title, req.body.author, req.body.lead, req.body.recommendation, req.body.read_date, req.body.status, req.params.bookId],
         function (error, results, fields) {
-            if (error) throw error;
+            if (error) {
+                console.log(error)
+                return res.status(400).send({
+                    message: error
+                });
+            }
+            console.log(results)
             res.end(JSON.stringify(results));
         });
 };
@@ -193,10 +199,11 @@ exports.getTagForBook = (req, res) => {
         });
     }
 
-    connection.query('select * from d_tag2book where book_id=?',
-        [req.params.name],
+    connection.query('select tag_id from d_tag2book where book_id=?',
+        [req.params.bookId],
         function (error, results, fields) {
             if (error) throw error;
+            res.setHeader('Content-Type', 'application/json');
             res.end(JSON.stringify(results));
         });
 };
